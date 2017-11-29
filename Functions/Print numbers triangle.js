@@ -1,15 +1,15 @@
 // first option
 const printLine = (number) => {
-let line = "";
-for (let i=1;i<=number;i+=1){
-    line += i + " ";
-    console.log(line)
+let line = '';
+for (let i=1; i<=number; i+=1) {
+    line += i + ' ';
+    console.log(line);
    }
 };
 
-printLine(3)
+printLine(3);
 
-console.log("-".repeat(30))
+console.log('-'.repeat(30));
 
 // second option
 const printLine1 = (n) => {
@@ -20,4 +20,4 @@ const printLine1 = (n) => {
     }
 };
 
-printLine1(3)
+printLine1(3);

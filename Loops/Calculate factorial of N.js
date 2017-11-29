@@ -3,12 +3,12 @@
 Calculate N! (Factorial of N)
 
 */
-let N = 15;
-let fact = N;
+const number = 15;
+const fact = number;
 let result = 1;
 
-for (let current=1 ; current<=fact; current+=1){
-    result *= current
+for (let current=1; current<=fact; current+=1) {
+    result *= current;
 }
 
-console.log(result)
+console.log(result);

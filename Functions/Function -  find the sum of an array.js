@@ -6,3 +6,4 @@ const totalSum = (numbers) => {
     return sum;
 };
 
+console.log(totalSum([1, 2, 3, 4, 5]));
