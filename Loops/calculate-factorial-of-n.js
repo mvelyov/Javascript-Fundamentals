@@ -3,7 +3,7 @@
 Calculate N! (Factorial of N)
 
 */
-const number = 15;
+const number = 5;
 const fact = number;
 let result = 1;
 
