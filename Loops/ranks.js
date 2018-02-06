@@ -11,26 +11,31 @@ const getGets = (arr) => {
 };
 // this is the test
 const test = [
-  '5',
-  '0 -5 4 -11 1',
-]
+    // test1
+    // '5',
+    // '0 -5 4 -11 1',
+
+    // test2
+    '4',
+    '1 3 4 2',
+];
 
 const gets = this.gets || getGets(test);
 const print = this.print || console.log;
 
 const n = +gets();
 const inputSequence = gets().split(' ').map(Number);
-const sortedSequence = inputSequence.slice().sort((x, y) => x-y);
+const sortedSequence = inputSequence.slice().sort((x, y) => y-x);
 const finalSequence = new Map();
-let finalResult = '';
 
-for (let i=1; i<=sortedSequence.length; i+=1) {
-    finalSequence[sortedSequence[i-1]] = sortedSequence.length-i+1;
-}
+inputSequence.forEach((element) => (finalSequence.set(element, 0)));
 
-for (let i=0; i<inputSequence.length; i+=1) {
-    finalResult += finalSequence[inputSequence[i]] + ' ';
-}
+let index = 0;
+sortedSequence.forEach((element) => {
+    index +=1;
+    finalSequence.set(element, finalSequence.get(element) + index);
+});
 
-console.log(finalResult);
+const finalResult = [...finalSequence.values()].join(' ');
+print(finalResult);
 
