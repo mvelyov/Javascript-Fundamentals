@@ -29,24 +29,18 @@ for (let i = 0; i < n; i += 1) {
 }
 
 const getMatrix = (endRow, startCol, endCol) => {
-    let matrixSum = [];
     let sum = 0;
-    matrixSum = (matrix[endRow - 2].slice(startCol, endCol));
-    for (let i = 0; i < matrixSum.length; i += 1) {
-        sum += matrixSum[i];
-    }
+    sum += matrix[endRow - 2][startCol];
+    sum += matrix[endRow - 2][startCol + 1];
+    sum += matrix[endRow - 2][startCol + 2];
 
-    matrixSum = (matrix[endRow - 1].slice(startCol, endCol));
-    for (let i = 0; i < matrixSum.length; i += 1) {
-        sum += matrixSum[i];
-    }
+    sum += matrix[endRow - 1][startCol];
+    sum += matrix[endRow - 1][startCol + 1];
+    sum += matrix[endRow - 1][startCol + 2];
 
-    matrixSum = (matrix[endRow].slice(startCol, endCol));
-    for (let i = 0; i < matrixSum.length; i += 1) {
-        sum += matrixSum[i];
-    }
-
-
+    sum += matrix[endRow][startCol];
+    sum += matrix[endRow][startCol + 1];
+    sum += matrix[endRow][startCol + 2];
     return sum;
 };
 
