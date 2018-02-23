@@ -24,35 +24,44 @@ const [n, m] = gets().split(' ').map(Number);
 const matrix = [];
 let maxSumArr;
 
-for (let i=0; i<n; i+=1) {
+for (let i = 0; i < n; i += 1) {
     matrix.push(gets().split(' ').map(Number));
 }
 
 const getMatrix = (endRow, startCol, endCol) => {
-let matrixSum = [];
-let sum = 0;
-matrixSum = (matrix[endRow-2].slice(startCol, endCol));
-matrixSum.forEach(n => sum += n);
-matrixSum = (matrix[endRow-1].slice(startCol, endCol));
-matrixSum.forEach(n => sum += n);
-matrixSum = (matrix[endRow].slice(startCol, endCol));
-matrixSum.forEach(n => sum += n);
+    let matrixSum = [];
+    let sum = 0;
+    matrixSum = (matrix[endRow - 2].slice(startCol, endCol));
+    for (let i = 0; i < matrixSum.length; i += 1) {
+        sum += matrixSum[i];
+    }
 
-return sum;
+    matrixSum = (matrix[endRow - 1].slice(startCol, endCol));
+    for (let i = 0; i < matrixSum.length; i += 1) {
+        sum += matrixSum[i];
+    }
+
+    matrixSum = (matrix[endRow].slice(startCol, endCol));
+    for (let i = 0; i < matrixSum.length; i += 1) {
+        sum += matrixSum[i];
+    }
+
+
+    return sum;
 };
 
-for (let endRow=2; endRow<n; endRow+=1) {
-let endCol = 3;
-let startCol = 0;
-while (endCol <=m ) {
-const sum = getMatrix(endRow, startCol, endCol);
-if (sum > maxSumArr) {
-    maxSumArr = sum;
-    } else if (typeof maxSumArr === 'undefined') {
-    maxSumArr = sum;
+for (let endRow = 2; endRow < n; endRow += 1) {
+    let endCol = 3;
+    let startCol = 0;
+    while (endCol <= m) {
+        const sum = getMatrix(endRow, startCol, endCol);
+        if (sum > maxSumArr) {
+            maxSumArr = sum;
+        } else if (typeof maxSumArr === 'undefined') {
+            maxSumArr = sum;
+        }
+        startCol += 1;
+        endCol += 1;
     }
-startCol +=1;
-endCol +=1;
-}
 }
 print(maxSumArr);
